@@ -1,16 +1,21 @@
-from dataclasses import dataclass
-from time import time, localtime
+'''
+Klasa ma przechowywać:
+    nazwę posiłku,
+    godzinę złożenia zamówienia,
+    godzinę wykonania zamówienia,
+    godzinę odbioru zamówienia.
+'''
 
-@dataclass
+from time import time, ctime
+
 class Order:
-    name: str
-    time_ordered = time()
-    time_finished = 0.0
-    time_given_away = 0.0
-    road_taken = []
 
-    def __str__(self):
-        return f'Order {self.name} {localtime(self.time_ordered)}'
+    def __init__(self, name):
+        self.name = name
+        self.created_at = time()
+        self.ready_at = None
+        self.collected_at = None
 
-    def log(self, loc):
-        print(f'{self.name} {time()} im currently in {loc}' )
+    def __str__(self) -> str:
+        return f'Order: {self.name}, {ctime(self.created_at)}, {self.ready_at}, {self.collected_at}'
+
