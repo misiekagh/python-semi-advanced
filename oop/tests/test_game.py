@@ -10,9 +10,9 @@ class TestGame(unittest.TestCase):
 
         game = Game(white, black, 1)
 
-        self.assertEquals(game.white, white)
-        self.assertEquals(game.black, black)
-        self.assertNotEquals(game.white, game.black)
+        self.assertEqual(game.white, white)
+        self.assertEqual(game.black, black)
+        self.assertNotEqual(game.white, game.black)
 
     def test_white_won_returns_correct_value(self):
         white = Player("Jan Kowalski", 1200)
