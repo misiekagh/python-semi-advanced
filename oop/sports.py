@@ -18,6 +18,7 @@ class Player:
         return sum([ord(v)*31 for v in self.name])
 
     def __eq__(self, other):
+        #return self.name == other.name
         return self.__hash__() == other.__hash__()
 
 @dataclass
