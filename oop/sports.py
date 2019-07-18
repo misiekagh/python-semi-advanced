@@ -14,6 +14,12 @@ class Player:
     def description(self):
         return f'My name is {self.name} and my ranking is {self.ranking}.'
 
+    def __hash__(self):
+        return sum([ord(v)*31 for v in self.name])
+
+    def __eq__(self, other):
+        return self.__hash__() == other.__hash__()
+
 @dataclass
 class Arena:
     games = []
