@@ -1,4 +1,7 @@
 from oop.sports import *
+from oop.multihash import MultiHash
+from random import randint
+from timeit import timeit
 
 p1=Player('Jan Kowalski', 1000)
 p2=Player('Al Bo', 2000)
@@ -9,3 +12,14 @@ print(p2.__hash__())
 print(p3.__hash__())
 print(p1==p4)
 print(p1==p3)
+
+print(''.join(map(lambda x:x.lower(), 'Hello World')))
+
+mh=MultiHash()
+for a in range(100):
+    mh.add(chr(randint(65,90)))
+
+print(mh)
+
+print('T' in mh)
+print('AA' in mh)

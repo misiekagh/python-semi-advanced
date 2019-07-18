@@ -1,11 +1,13 @@
 from dataclasses import dataclass
 
 @dataclass
-
-@dataclass
 class Player:
-    name: str
+    _name: str
     ranking: int
+
+    @property
+    def name(self):
+        return self._name
 
     def __post_init__(self):
         try: assert(len(self.name)>3)
