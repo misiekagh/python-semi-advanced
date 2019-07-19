@@ -1,7 +1,14 @@
 from oop.sports import *
 from oop.multihash import MultiHash
 from random import randint
-from timeit import timeit
+from oop.timefunc import timeit
+
+@timeit
+def findstr(str):
+    for _ in range(10000):
+        if str in mh:
+            pass
+
 
 p1=Player('Jan Kowalski', 1000)
 p2=Player('Al Bo', 2000)
@@ -21,5 +28,4 @@ for a in range(100):
 
 print(mh)
 
-print('T' in mh)
-print('AA' in mh)
+findstr('T')
