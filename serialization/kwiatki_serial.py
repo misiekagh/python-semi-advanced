@@ -12,17 +12,9 @@ with open('iris.data') as plik:
 
 with open('kwiatki_nf.json', 'w') as f: json.dump(kwiatki, f)
 
-with open('kwiatki_nl.json','w') as f:
+with open('kwiatki_nl.json','w') as file:
     for k,l in kwiatki.items():
         json.dump({k:{'avg':[sum(v)/len(v) for v in l],
-             'min':[min(v) for v in l],
-             'max':[max(v) for v in l]}
-           },f)
-        f.write('\n')
-
-# with open('kwiatki.txt', 'w', encoding='utf-8') as file:
-#     for k,l in kwiatki.items():
-#         file.write(f'Kwiatek {k} średnie: {[sum(v)/len(v) for v in l]}\n'
-#                    f'                min: {[min(v) for v in l]}\n'
-#                    f'                max: {[max(v) for v in l]}\n')
-
+                      'min':[min(v) for v in l],
+                       'max':[max(v) for v in l]}}, file)
+        file.write('\n')
